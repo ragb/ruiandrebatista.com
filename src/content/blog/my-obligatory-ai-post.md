@@ -16,7 +16,7 @@ This narrative is all over LinkedIn, Medium, Substack — all the cool places. I
 
 But wait. What specifications? What requirements? What strategy?
 
-Spend a few months in the IT industry — startups, big corporates, the HR consultancy disguised as a software company — and you will hear "I don't understand the requirements" from developers, "you should assume..." from product people, and a different, unclear strategy every year from your talkative and mostly oblivious CEO. And with all the verbal and written difficulties people struggle with these days, this is only getting worse.
+Spend a few months in the IT industry — startups, big corporates, the HR consultancy disguised as a software company — and you will hear "I don't understand the requirements" from developers, "you should assume..." from product people, and a different, unclear strategy every year from your talkative and mostly oblivious CEO. And with the state of written communication these days — people who can barely write a paragraph, entire conversations reduced to Slack one-liners, a generation that struggles with structured writing — this is only getting worse. We're betting on specifications as the solution while the average ability to produce clear, precise text is going in the opposite direction.
 
 How exactly do you expect any AI, however sophisticated, to build a decent product out of that? Production ready? For users that require legal consideration? With data consistency? GDPR compliance?
 
