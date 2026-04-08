@@ -1,9 +1,11 @@
 ---
 title: "My Obligatory AI Post, or: What Specifications?"
-description: "Everyone says AI will replace developers because building is the easy part now. But the hard part was never the building — it was knowing what to build. And nobody has that figured out either."
+description: "AI will write the code, product will write the specs, and management will write the strategy. Everybody gets cut. There's just one problem: nobody could write any of those things properly in the first place."
 pubDate: 2026-04-08
 draft: false
 tags: ["software-engineering", "ai"]
+heroImage: "../../assets/images/bow.png"
+heroImageAlt: "A cartoon figure trying to shoot a champagne bottle with a bow and arrow, about to miss spectacularly"
 ---
 
 You tell a friend a stupid idea. They make a face. You tell a colleague and they laugh. You tell your boss and you might get fired.

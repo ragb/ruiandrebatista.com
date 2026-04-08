@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import CopyCodeButton from "../components/CopyCodeButton.astro";
@@ -12,6 +13,8 @@ interface Props {
   ogImage?: string;
   readingTime?: number;
   linkTags?: boolean;
+  heroImage?: ImageMetadata;
+  heroImageAlt?: string;
   prevPost?: { title: string; slug: string };
   nextPost?: { title: string; slug: string };
 }
@@ -25,6 +28,8 @@ const {
   ogImage,
   readingTime,
   linkTags = false,
+  heroImage,
+  heroImageAlt,
   prevPost,
   nextPost,
 } = Astro.props;
@@ -63,6 +68,13 @@ const {
         )
       }
     </header>
+    {
+      heroImage && (
+        <div class="hero-image">
+          <Image src={heroImage} alt={heroImageAlt || ""} width={800} />
+        </div>
+      )
+    }
     <div class="prose">
       <slot />
     </div>
@@ -94,6 +106,18 @@ const {
 </BaseLayout>
 
 <style>
+  .hero-image {
+    margin-block-end: var(--space-2xl);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+  }
+
   .article-header {
     margin-block-end: var(--space-2xl);
     padding-block-end: var(--space-lg);
