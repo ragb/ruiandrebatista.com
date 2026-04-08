@@ -79,13 +79,13 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           args: >
-            --base dist
+            --root-dir dist
             --no-progress
             --exclude-loopback
             --exclude-mail
             --exclude 'linkedin.com'
             --exclude 'facebook.com'
-            dist/**/*.html
+            'dist/**/*.html'
           fail: true
 
   lighthouse:
