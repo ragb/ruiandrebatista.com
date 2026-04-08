@@ -11,6 +11,7 @@ interface Props {
   tags?: string[];
   ogImage?: string;
   readingTime?: number;
+  linkTags?: boolean;
   prevPost?: { title: string; slug: string };
   nextPost?: { title: string; slug: string };
 }
@@ -23,6 +24,7 @@ const {
   tags = [],
   ogImage,
   readingTime,
+  linkTags = false,
   prevPost,
   nextPost,
 } = Astro.props;
@@ -48,9 +50,13 @@ const {
           <ul class="tag-list" role="list" aria-label="Tags">
             {tags.map((tag) => (
               <li>
-                <a href={`/blog/tag/${tag}/`} class="tag">
-                  {tag}
-                </a>
+                {linkTags ? (
+                  <a href={`/blog/tag/${tag}/`} class="tag">
+                    {tag}
+                  </a>
+                ) : (
+                  <span class="tag">{tag}</span>
+                )}
               </li>
             ))}
           </ul>
