@@ -82,7 +82,6 @@ jobs:
             --root-dir dist
             --no-progress
             --exclude-loopback
-            --exclude-mail
             --exclude 'linkedin.com'
             --exclude 'facebook.com'
             'dist/**/*.html'
