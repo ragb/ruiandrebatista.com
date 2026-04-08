@@ -25,7 +25,7 @@ export async function getStaticPaths() {
 }
 
 const { post, prevPost, nextPost } = Astro.props;
-const { Content, remarkPluginFrontmatter } = await render(post);
+const { Content } = await render(post);
 
 // Calculate reading time from rendered content body
 const body = post.body ?? "";
