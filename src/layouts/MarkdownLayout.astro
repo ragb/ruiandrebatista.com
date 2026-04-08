@@ -15,6 +15,7 @@ interface Props {
   linkTags?: boolean;
   heroImage?: ImageMetadata;
   heroImageAlt?: string;
+  heroImageLongDesc?: string;
   prevPost?: { title: string; slug: string };
   nextPost?: { title: string; slug: string };
 }
@@ -30,6 +31,7 @@ const {
   linkTags = false,
   heroImage,
   heroImageAlt,
+  heroImageLongDesc,
   prevPost,
   nextPost,
 } = Astro.props;
@@ -70,9 +72,14 @@ const {
     </header>
     {
       heroImage && (
-        <div class="hero-image">
+        <figure class="hero-image" role="figure" aria-labelledby={heroImageLongDesc ? "hero-img-desc" : undefined}>
           <Image src={heroImage} alt={heroImageAlt || ""} width={800} />
-        </div>
+          {heroImageLongDesc && (
+            <figcaption id="hero-img-desc" class="visually-hidden">
+              {heroImageLongDesc}
+            </figcaption>
+          )}
+        </figure>
       )
     }
     <div class="prose">
