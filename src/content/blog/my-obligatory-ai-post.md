@@ -5,7 +5,7 @@ pubDate: 2026-04-08
 draft: false
 tags: ["software-engineering", "ai"]
 heroImage: "../../assets/images/bow.png"
-heroImageAlt: "A cartoon figure trying to shoot a champagne bottle with a bow and arrow, about to miss spectacularly"
+heroImageAlt: "A humorous cartoon of a heavyset man in a red shirt trying to shoot a champagne bottle with a crude homemade bow and arrow. He misses badly, and the arrow flies off into a nearby tree while he makes a confused, exaggerated face. The champagne bottle stands untouched on a wooden barrel, emphasizing the failed attempt. The outdoor setting is bright and playful, with comic-style motion effects highlighting the disastrous shot."
 ---
 
 You tell a friend a stupid idea. They make a face. You tell a colleague and they laugh. You tell your boss and you might get fired.
