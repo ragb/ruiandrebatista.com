@@ -8,4 +8,12 @@ export default defineConfig({
   build: {
     format: "directory",
   },
+  markdown: {
+    shikiConfig: {
+      themes: {
+        light: "github-light-high-contrast",
+        dark: "github-dark-high-contrast",
+      },
+    },
+  },
 });

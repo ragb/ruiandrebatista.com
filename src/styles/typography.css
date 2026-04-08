@@ -69,13 +69,33 @@ h4 {
 }
 
 .prose pre {
-  background-color: var(--color-bg-alt);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-lg);
   overflow-x: auto;
   font-size: var(--font-size-sm);
   line-height: 1.6;
+}
+
+/* Shiki dual theme support */
+html:not([data-theme="light"]) .astro-code,
+html:not([data-theme="light"]) .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
+
+[data-theme="light"] .astro-code,
+[data-theme="light"] .astro-code span {
+  color: var(--shiki-light) !important;
+  background-color: var(--shiki-light-bg) !important;
+}
+
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .astro-code,
+  html:not([data-theme="dark"]) .astro-code span {
+    color: var(--shiki-light) !important;
+    background-color: var(--shiki-light-bg) !important;
+  }
 }
 
 .prose :not(pre) > code {
