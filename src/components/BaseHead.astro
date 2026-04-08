@@ -1,0 +1,80 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const { title, description, ogImage } = Astro.props;
+const ogImageURL = ogImage ? new URL(ogImage, Astro.site) : undefined;
+const isHomepage = Astro.url.pathname === "/";
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+{ogImageURL && <meta property="og:image" content={ogImageURL} />}
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{ogImageURL && <meta name="twitter:image" content={ogImageURL} />}
+
+<!-- RSS -->
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title="Rui André Batista's Blog"
+  href={new URL("/rss.xml", Astro.site)}
+/>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<!-- JSON-LD structured data -->
+{
+  isHomepage && (
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Rui André Batista",
+        url: "https://ruiandrebatista.com",
+        jobTitle: "Software Engineer",
+        worksFor: {
+          "@type": "Organization",
+          name: "Tiko",
+          url: "https://tiko.org",
+        },
+        sameAs: [
+          "https://github.com/ragb",
+          "https://www.linkedin.com/in/rui-batista-59b90215/",
+          "https://masto.pt/@ragb",
+        ],
+      })}
+    />
+  )
+}
+
+<!-- Theme initialization (inline to prevent FOUC) -->
+<script is:inline>
+  (function () {
+    const stored = localStorage.getItem("theme");
+    if (stored) {
+      document.documentElement.setAttribute("data-theme", stored);
+    }
+  })();
+</script>

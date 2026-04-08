@@ -1,0 +1,56 @@
+---
+---
+
+<script>
+  function initCopyButtons() {
+    document.querySelectorAll(".prose pre").forEach((pre) => {
+      if (pre.querySelector(".copy-btn")) return;
+
+      const btn = document.createElement("button");
+      btn.className = "copy-btn";
+      btn.type = "button";
+      btn.setAttribute("aria-label", "Copy code to clipboard");
+      btn.textContent = "copy";
+
+      btn.addEventListener("click", async () => {
+        const code = pre.querySelector("code");
+        if (!code) return;
+        await navigator.clipboard.writeText(code.textContent || "");
+        btn.textContent = "copied!";
+        setTimeout(() => {
+          btn.textContent = "copy";
+        }, 2000);
+      });
+
+      pre.style.position = "relative";
+      pre.appendChild(btn);
+    });
+  }
+
+  initCopyButtons();
+  document.addEventListener("astro:after-swap", initCopyButtons);
+</script>
+
+<style is:global>
+  .copy-btn {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    padding: 0.15em 0.5em;
+    background-color: var(--color-surface);
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition:
+      color var(--transition-fast),
+      border-color var(--transition-fast);
+  }
+
+  .copy-btn:hover {
+    color: var(--color-text);
+    border-color: var(--color-text-muted);
+  }
+</style>

@@ -1,0 +1,134 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  tags?: string[];
+  repoUrl?: string;
+  liveUrl?: string;
+  status?: string;
+}
+
+const { title, description, slug, tags = [], repoUrl, liveUrl, status } = Astro.props;
+---
+
+<article class="project-card">
+  <div class="project-header">
+    <h3>
+      <a href={`/projects/${slug}/`}>{title}</a>
+    </h3>
+    {status && status !== "active" && <span class="status-badge">{status}</span>}
+  </div>
+  <p>{description}</p>
+  {
+    tags.length > 0 && (
+      <ul class="tag-list" role="list" aria-label="Technologies">
+        {tags.map((tag) => (
+          <li>
+            <span class="tag">{tag}</span>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+  {
+    (repoUrl || liveUrl) && (
+      <div class="project-links">
+        {repoUrl && (
+          <a href={repoUrl} target="_blank" rel="noopener" aria-label={`${title} source code (opens in new tab)`}>
+            source
+          </a>
+        )}
+        {liveUrl && (
+          <a href={liveUrl} target="_blank" rel="noopener" aria-label={`${title} live demo (opens in new tab)`}>
+            live
+          </a>
+        )}
+      </div>
+    )
+  }
+</article>
+
+<style>
+  .project-card {
+    padding: var(--space-lg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-bg-alt);
+    transition: border-color var(--transition-fast);
+  }
+
+  .project-card:hover {
+    border-color: var(--color-text-subtle);
+  }
+
+  .project-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-block-end: var(--space-sm);
+  }
+
+  h3 {
+    font-size: var(--font-size-md);
+  }
+
+  h3 a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  h3 a:hover {
+    color: var(--color-accent);
+  }
+
+  .status-badge {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    padding: 0.1em 0.4em;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-surface);
+    color: var(--color-amber);
+    border: 1px solid var(--color-border);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  p {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    list-style: none;
+    padding: 0;
+    margin-block-start: var(--space-sm);
+  }
+
+  .project-links {
+    display: flex;
+    gap: var(--space-md);
+    margin-block-start: var(--space-md);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+  }
+
+  .project-links a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .project-links a::before {
+    content: "→ ";
+    color: var(--color-text-subtle);
+  }
+
+  .project-links a:hover {
+    color: var(--color-accent-hover);
+    text-decoration: underline;
+  }
+</style>

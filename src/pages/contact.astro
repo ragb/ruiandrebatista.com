@@ -1,0 +1,158 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Get in Touch — Rui André Batista"
+  description="How to reach Rui André Batista for speaking, accessibility work, and collaboration."
+>
+  <header class="page-header">
+    <h1>
+      <span class="prefix" aria-hidden="true">~/</span>contact
+    </h1>
+  </header>
+
+  <div class="contact-content">
+    <section aria-labelledby="intro-heading">
+      <h2 id="intro-heading" class="visually-hidden">Before you reach out</h2>
+      <p>
+        I'm not actively looking for a new role — I'm happy where I am.
+        I don't respond to generic recruiting messages. Unless you're
+        bringing something genuinely exceptional in terms of compensation,
+        flexibility, and impact — namely in the accessibility space —
+        please don't pitch me a job. If you're here for something else,
+        keep reading.
+      </p>
+    </section>
+
+    <section aria-labelledby="available-heading">
+      <h2 id="available-heading">What I can help with</h2>
+      <ul class="available-list" role="list">
+        <li>
+          <strong>Speaking</strong> — conference talks, panels, and webinars
+          on accessibility, assistive technology, Braille, open source,
+          functional programming, or software engineering.
+        </li>
+        <li>
+          <strong>Accessibility advisory</strong> — reviewing products,
+          workflows, or teams for accessibility. I'm both a daily
+          assistive technology user and a working software engineer, so
+          I understand the constraints on both sides. I can help
+          developers and product teams ship accessible software with
+          practical, implementable advice. If all you need is a WCAG
+          audit, there are people better suited for that.
+        </li>
+        <li>
+          <strong>Technical writing</strong> — articles on accessibility,
+          screen readers, Braille and technology, or software engineering
+          topics.
+        </li>
+        <li>
+          <strong>Open source collaboration</strong> — particularly around
+          assistive technology and accessibility tooling.
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="how-heading">
+      <h2 id="how-heading">How to reach me</h2>
+      <ul class="contact-list" role="list">
+        <li>
+          <a
+            href="https://www.linkedin.com/in/rui-batista-59b90215/"
+            target="_blank"
+            rel="noopener"
+            >LinkedIn</a
+          > — best for professional inquiries
+        </li>
+        <li>
+          <a
+            href="https://masto.pt/@ragb"
+            target="_blank"
+            rel="me noopener"
+            >Mastodon</a
+          > — for everything else
+        </li>
+        <li>
+          <a
+            href="https://github.com/ragb"
+            target="_blank"
+            rel="noopener"
+            >GitHub</a
+          > — for code-related things
+        </li>
+      </ul>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-header {
+    margin-block-end: var(--space-2xl);
+  }
+
+  .prefix {
+    color: var(--color-text-subtle);
+  }
+
+  .contact-content {
+    max-width: var(--max-width);
+  }
+
+  .contact-content section {
+    margin-block-end: var(--space-3xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-lg);
+    padding-block-end: var(--space-sm);
+    border-block-end: 1px solid var(--color-border);
+    margin-block-end: var(--space-lg);
+  }
+
+  p {
+    color: var(--color-text-muted);
+    line-height: 1.75;
+  }
+
+  .available-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .available-list li {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    line-height: 1.75;
+    padding-inline-start: var(--space-lg);
+    position: relative;
+  }
+
+  .available-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-text-subtle);
+    font-family: var(--font-mono);
+  }
+
+  .available-list strong {
+    color: var(--color-text);
+    font-family: var(--font-mono);
+  }
+
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .contact-list li {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+</style>

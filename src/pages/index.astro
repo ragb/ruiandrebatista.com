@@ -1,0 +1,197 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPostCard from "../components/BlogPostCard.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("blog", ({ data }) => !data.draft);
+const latestPosts = allPosts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const allProjects = await getCollection("projects");
+const featuredProjects = allProjects.filter((p) => p.data.featured);
+---
+
+<BaseLayout
+  title="Rui André Batista — Software Engineer"
+  description="Personal website of Rui André Batista — software engineer. Blog, projects, and CV."
+>
+  <section class="hero" aria-labelledby="hero-heading">
+    <p class="greeting" aria-hidden="true">
+      <span class="prompt-symbol">$</span> whoami
+    </p>
+    <h1 id="hero-heading">Rui André Batista</h1>
+    <p class="tagline">Blind software engineer. Functional programming, distributed systems, and accessibility.</p>
+  </section>
+
+  <section class="currently" aria-labelledby="currently-heading">
+    <h2 id="currently-heading">
+      <span class="section-prefix" aria-hidden="true">~/</span>currently
+    </h2>
+    <ul class="current-list" role="list">
+      <li>
+        Backend Engineer &amp; Team Lead at
+        <a href="https://tiko.org/" target="_blank" rel="noopener">Tiko</a>
+        — tech for reproductive health in sub-Saharan Africa
+      </li>
+      <li>
+        Member of the <a href="https://www.inr.pt/nucleo-para-o-braille-e-meios-complementares-de-leitura" target="_blank" rel="noopener">Núcleo para o Braille</a> (INR)
+        and involved with
+        <a href="https://www.acapo.pt/" target="_blank" rel="noopener">ACAPO</a> and
+        <a href="https://bengalamagica.pt/" target="_blank" rel="noopener">Bengala Mágica</a>
+      </li>
+    </ul>
+  </section>
+
+  {
+    latestPosts.length > 0 && (
+      <section aria-labelledby="recent-posts-heading">
+        <div class="section-header">
+          <h2 id="recent-posts-heading">
+            <span class="section-prefix" aria-hidden="true">
+              ~/
+            </span>
+            recent posts
+          </h2>
+          <a href="/blog/" class="see-all">
+            all posts <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+        <div class="card-grid">
+          {latestPosts.map((post) => (
+            <BlogPostCard
+              title={post.data.title}
+              description={post.data.description}
+              pubDate={post.data.pubDate}
+              slug={post.id}
+              tags={post.data.tags}
+            />
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  {
+    featuredProjects.length > 0 && (
+      <section aria-labelledby="featured-projects-heading">
+        <div class="section-header">
+          <h2 id="featured-projects-heading">
+            <span class="section-prefix" aria-hidden="true">
+              ~/
+            </span>
+            projects
+          </h2>
+          <a href="/projects/" class="see-all">
+            all projects <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+        <div class="card-grid">
+          {featuredProjects.map((project) => (
+            <ProjectCard
+              title={project.data.title}
+              description={project.data.description}
+              slug={project.id}
+              tags={project.data.tags}
+              repoUrl={project.data.repoUrl}
+              liveUrl={project.data.liveUrl}
+              status={project.data.status}
+            />
+          ))}
+        </div>
+      </section>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .hero {
+    margin-block-end: var(--space-3xl);
+    padding-block: var(--space-2xl);
+  }
+
+  .greeting {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-sm);
+  }
+
+  .prompt-symbol {
+    color: var(--color-green);
+  }
+
+  h1 {
+    margin-block-end: var(--space-sm);
+  }
+
+  .tagline {
+    font-size: var(--font-size-md);
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-lg);
+  }
+
+  section + section {
+    margin-block-start: var(--space-3xl);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-md);
+    margin-block-end: var(--space-lg);
+  }
+
+  .section-prefix {
+    color: var(--color-text-subtle);
+  }
+
+  h2 {
+    font-size: var(--font-size-lg);
+  }
+
+  .see-all {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .see-all:hover {
+    color: var(--color-accent);
+  }
+
+  .card-grid {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .currently h2 {
+    margin-block-end: var(--space-lg);
+  }
+
+  .current-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .current-list li {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    padding-inline-start: var(--space-lg);
+    position: relative;
+  }
+
+  .current-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-text-subtle);
+    font-family: var(--font-mono);
+  }
+</style>

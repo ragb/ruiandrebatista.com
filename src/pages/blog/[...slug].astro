@@ -1,0 +1,48 @@
+---
+import MarkdownLayout from "../../layouts/MarkdownLayout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  const sorted = posts.sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  );
+
+  return sorted.map((post, i) => ({
+    params: { slug: post.id },
+    props: {
+      post,
+      prevPost:
+        i < sorted.length - 1
+          ? { title: sorted[i + 1].data.title, slug: sorted[i + 1].id }
+          : undefined,
+      nextPost:
+        i > 0
+          ? { title: sorted[i - 1].data.title, slug: sorted[i - 1].id }
+          : undefined,
+    },
+  }));
+}
+
+const { post, prevPost, nextPost } = Astro.props;
+const { Content, remarkPluginFrontmatter } = await render(post);
+
+// Calculate reading time from rendered content body
+const body = post.body ?? "";
+const words = body.split(/\s+/).filter(Boolean).length;
+const readingTime = Math.max(1, Math.round(words / 200));
+---
+
+<MarkdownLayout
+  title={post.data.title}
+  description={post.data.description}
+  pubDate={post.data.pubDate}
+  updatedDate={post.data.updatedDate}
+  tags={post.data.tags}
+  ogImage={post.data.ogImage}
+  readingTime={readingTime}
+  prevPost={prevPost}
+  nextPost={nextPost}
+>
+  <Content />
+</MarkdownLayout>

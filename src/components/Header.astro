@@ -1,0 +1,60 @@
+---
+import Nav from "./Nav.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="site-title" aria-label="Rui André Batista — Home">
+      <span class="prompt-char" aria-hidden="true">~</span>
+      <span>ragb</span>
+    </a>
+    <div class="header-right">
+      <Nav />
+      <ThemeToggle />
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-block-end: 1px solid var(--color-border);
+    background-color: var(--color-bg);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding-block: var(--space-md);
+  }
+
+  .site-title {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    color: var(--color-text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.15em;
+  }
+
+  .site-title:hover {
+    color: var(--color-accent);
+  }
+
+  .prompt-char {
+    color: var(--color-green);
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+</style>

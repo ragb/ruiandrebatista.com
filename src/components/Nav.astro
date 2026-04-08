@@ -1,0 +1,214 @@
+---
+const currentPath = Astro.url.pathname;
+
+const links = [
+  { href: "/about/", label: "about" },
+  { href: "/blog/", label: "blog" },
+  { href: "/projects/", label: "projects" },
+  { href: "/publications/", label: "publications" },
+  { href: "/cv/", label: "cv" },
+];
+---
+
+{/* Desktop nav — visible at >=640px */}
+<nav class="nav-desktop" aria-label="Main navigation">
+  <ul class="nav-list" role="list">
+    {
+      links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            aria-current={currentPath.startsWith(link.href) ? "page" : undefined}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+{/* Mobile nav — visible at <640px */}
+<nav class="nav-mobile" aria-label="Main navigation">
+  <button
+    class="hamburger-btn"
+    type="button"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+    aria-label="Open menu"
+  >
+    <svg
+      class="hamburger-icon"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      aria-hidden="true"
+    >
+      <line class="line-top" x1="3" y1="6" x2="21" y2="6" />
+      <line class="line-mid" x1="3" y1="12" x2="21" y2="12" />
+      <line class="line-bot" x1="3" y1="18" x2="21" y2="18" />
+    </svg>
+  </button>
+  <ul class="mobile-menu" id="mobile-menu" role="list" hidden>
+    {
+      links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            aria-current={currentPath.startsWith(link.href) ? "page" : undefined}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<script>
+  const btn = document.querySelector(".hamburger-btn") as HTMLButtonElement;
+  const menu = document.getElementById("mobile-menu") as HTMLUListElement;
+
+  function toggle() {
+    const isOpen = btn.getAttribute("aria-expanded") === "true";
+    btn.setAttribute("aria-expanded", String(!isOpen));
+    btn.setAttribute("aria-label", isOpen ? "Open menu" : "Close menu");
+    menu.hidden = isOpen;
+  }
+
+  btn.addEventListener("click", toggle);
+
+  // Close when pressing Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && btn.getAttribute("aria-expanded") === "true") {
+      toggle();
+      btn.focus();
+    }
+  });
+
+  // Close when clicking a link inside the menu
+  menu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (btn.getAttribute("aria-expanded") === "true") {
+        toggle();
+      }
+    });
+  });
+</script>
+
+<style>
+  /* ── Mobile first: show mobile, hide desktop ── */
+  .nav-desktop {
+    display: none;
+  }
+
+  .nav-mobile {
+    display: block;
+  }
+
+  /* ── Desktop: swap visibility ── */
+  @media (min-width: 640px) {
+    .nav-desktop {
+      display: block;
+    }
+    .nav-mobile {
+      display: none !important;
+    }
+  }
+
+  .nav-list {
+    display: flex;
+    gap: var(--space-md);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+  }
+
+  /* ── Mobile nav ── */
+  .nav-mobile {
+    position: relative;
+  }
+
+  .hamburger-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    padding: var(--space-xs);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition:
+      color var(--transition-fast),
+      background-color var(--transition-fast),
+      border-color var(--transition-fast);
+  }
+
+  .hamburger-btn:hover,
+  .hamburger-btn:focus-visible {
+    color: var(--color-text);
+    background-color: var(--color-bg-alt);
+    border-color: var(--color-border);
+  }
+
+  .hamburger-btn[aria-expanded="true"] {
+    color: var(--color-accent);
+    background-color: var(--color-bg-alt);
+  }
+
+  .mobile-menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + var(--space-xs));
+    min-width: 10rem;
+    list-style: none;
+    margin: 0;
+    padding: var(--space-xs);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs, 2px);
+    z-index: 20;
+  }
+
+  .mobile-menu[hidden] {
+    display: none;
+  }
+
+  /* ── Shared link styles ── */
+  a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    transition:
+      color var(--transition-fast),
+      background-color var(--transition-fast);
+  }
+
+  a:hover {
+    color: var(--color-text);
+    background-color: var(--color-bg-alt);
+  }
+
+  a[aria-current="page"] {
+    color: var(--color-accent);
+    background-color: var(--color-bg-alt);
+  }
+
+  .mobile-menu a {
+    display: block;
+  }
+</style>

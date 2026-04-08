@@ -1,0 +1,45 @@
+@media print {
+  .site-header,
+  .site-footer,
+  .skip-link,
+  .post-nav,
+  #theme-toggle {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #555;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .tag {
+    border: 1px solid #ccc;
+    background: none;
+  }
+
+  h1, h2, h3 {
+    break-after: avoid;
+  }
+
+  .cv-entry {
+    break-inside: avoid;
+  }
+}

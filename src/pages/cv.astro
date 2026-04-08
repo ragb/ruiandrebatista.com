@@ -1,0 +1,447 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="CV — Rui André Batista"
+  description="Curriculum vitae of Rui André Batista — software engineer."
+>
+  <header class="page-header">
+    <h1>
+      <span class="prefix" aria-hidden="true">~/</span>cv
+    </h1>
+    <p class="subtitle">Software Engineer</p>
+    <p class="last-updated">Last updated April 2026</p>
+  </header>
+
+  <div class="cv-content">
+    <section aria-labelledby="about-heading">
+      <h2 id="about-heading">About</h2>
+      <p>
+        Blind software engineer based in Portugal. Functional programming
+        enthusiast, interested in data streaming, distributed systems and
+        cloud-native architectures. Full-stack background with a focus on
+        backend and infrastructure. Long-time contributor to open source,
+        particularly in the accessibility space. Public speaking experience at
+        conferences and meetups.
+      </p>
+    </section>
+
+    <section aria-labelledby="experience-heading">
+      <h2 id="experience-heading">Experience</h2>
+      <div class="cv-entries">
+        <article class="cv-entry">
+          <div class="cv-entry-header">
+            <h3>Backend Engineer &amp; Team Lead</h3>
+            <span class="cv-date">Nov 2025 — Present</span>
+          </div>
+          <p class="cv-org">
+            <a href="https://tiko.org/" target="_blank" rel="noopener"
+              >Tiko</a
+            >
+          </p>
+          <p>
+            Leading a backend engineering team at Tiko, a non-profit using
+            technology to transform sexual and reproductive health for
+            underserved young people across sub-Saharan Africa.
+          </p>
+        </article>
+
+        <article class="cv-entry">
+          <div class="cv-entry-header">
+            <h3>Backend Developer</h3>
+            <span class="cv-date">Nov 2019 — Oct 2025</span>
+          </div>
+          <p class="cv-org">TB.LX (Daimler Trucks and Buses)</p>
+          <p>
+            Built streaming-based solutions for real-time processing of signals
+            from trucks and buses worldwide. Microservices architecture, heavily
+            Kafka-based. Worked primarily in Scala: Kafka Streams, Apache Flink,
+            ZIO, Cats, Doobie, Http4s, gRPC. Infrastructure and operations with
+            Azure DevOps, Terraform, Kubernetes, Grafana, Linkerd. Strong focus
+            on observability: metrics, logging, tracing, SLOs.
+          </p>
+        </article>
+
+        <article class="cv-entry">
+          <div class="cv-entry-header">
+            <h3>Scala Developer</h3>
+            <span class="cv-date">Jun 2015 — Oct 2019</span>
+          </div>
+          <p class="cv-org">e.Near</p>
+          <p>
+            Worked on projects in financial services, gambling, and KYC domains.
+            Scala ecosystem: Akka, Akka Streams, Shapeless, Cats, cats-effect,
+            Circe, Slick, Play Framework, ScalaCheck. Databases included
+            PostgreSQL, Cassandra, Elasticsearch, MongoDB, Neo4J. Deployed on
+            AWS, Google Cloud, and Heroku using Docker and Ansible. Managed a
+            team of four developers. Pushed adoption of functional programming,
+            infrastructure as code, and agile practices.
+          </p>
+        </article>
+
+        <article class="cv-entry">
+          <div class="cv-entry-header">
+            <h3>Consultant</h3>
+            <span class="cv-date">Sep 2014 — May 2015</span>
+          </div>
+          <p class="cv-org">Altran Portugal</p>
+          <p>
+            Projects in the public sector and life sciences, including
+            integration at INFARMED (Portuguese National Authority of Medicines
+            and Health Products). Java EE, Oracle databases, Eclipse IDE. UI
+            programming, business logic, database access, and build
+            infrastructure improvements.
+          </p>
+        </article>
+
+        <article class="cv-entry">
+          <div class="cv-entry-header">
+            <h3>Full Stack Developer</h3>
+            <span class="cv-date">2012 — 2014</span>
+          </div>
+          <p class="cv-org">Tiflotecnia, Consultoria e Acessibilidade</p>
+          <p>
+            Developed iOS apps for PDF reading, image capture and OCR, designed
+            for visually impaired users (Objective-C, C, C++). Integrated the
+            Nuance Vocalizer speech synthesiser with the NVDA screen reader and
+            built the supporting license validation, user management and online
+            store (Python, Scala, Java, PostgreSQL, RabbitMQ, JavaScript).
+            Administered the company's Linux infrastructure.
+          </p>
+        </article>
+
+        <article class="cv-entry">
+          <div class="cv-entry-header">
+            <h3>Open Source Contributions</h3>
+            <span class="cv-date">2007 — Present</span>
+          </div>
+          <p class="cv-org">
+            <a
+              href="https://www.nvaccess.org/"
+              target="_blank"
+              rel="noopener"
+              >NVDA</a
+            >, Orca, Speech-Dispatcher, Scala ecosystem
+          </p>
+          <p>
+            Core contributor to the NVDA screen reader for Windows: designed and
+            built the add-ons system, improved the braille subsystem and
+            hardware terminal support, translated the interface and documentation
+            to Portuguese (Python, C, C++). Contributed to GNU/Linux
+            accessibility via Orca and Speech-Dispatcher (Python, C, Java).
+            Various fixes and improvements to Scala ecosystem libraries.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="education-heading">
+      <h2 id="education-heading">Education</h2>
+      <div class="cv-entries">
+        <article class="cv-entry">
+          <div class="cv-entry-header">
+            <h3>MSc in Computer Science and Engineering</h3>
+            <span class="cv-date">2011 — 2013</span>
+          </div>
+          <p class="cv-org">Técnico Lisboa (University of Lisbon)</p>
+          <p>
+            Average 15.4/20. Thesis not submitted. Specialisation in Distributed
+            Systems (major) and Software Engineering (minor). Grades of 18/20 in
+            Advanced Programming and Multimedia Computer Systems Architecture.
+          </p>
+        </article>
+
+        <article class="cv-entry">
+          <div class="cv-entry-header">
+            <h3>BSc in Computer Science and Engineering</h3>
+            <span class="cv-date">2006 — 2011</span>
+          </div>
+          <p class="cv-org">Técnico Lisboa (University of Lisbon)</p>
+          <p>Average 13.4/20. Grade of 18/20 in Operating Systems.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Skills</h2>
+      <div class="skills-grid">
+        <div>
+          <h3>Languages</h3>
+          <ul class="skill-list" role="list">
+            <li><span class="tag">Scala</span></li>
+            <li><span class="tag">Java</span></li>
+            <li><span class="tag">Python</span></li>
+            <li><span class="tag">Kotlin</span></li>
+            <li><span class="tag">Rust</span></li>
+            <li><span class="tag">C / C++</span></li>
+            <li><span class="tag">SQL</span></li>
+            <li><span class="tag">Haskell</span></li>
+            <li><span class="tag">JavaScript</span></li>
+            <li><span class="tag">Bash</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Data &amp; Infrastructure</h3>
+          <ul class="skill-list" role="list">
+            <li><span class="tag">Kafka</span></li>
+            <li><span class="tag">Apache Flink</span></li>
+            <li><span class="tag">PostgreSQL</span></li>
+            <li><span class="tag">Cassandra</span></li>
+            <li><span class="tag">Elasticsearch</span></li>
+            <li><span class="tag">Docker</span></li>
+            <li><span class="tag">Kubernetes</span></li>
+            <li><span class="tag">Terraform</span></li>
+            <li><span class="tag">AWS</span></li>
+            <li><span class="tag">Azure</span></li>
+            <li><span class="tag">GCP</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Libraries &amp; Frameworks</h3>
+          <ul class="skill-list" role="list">
+            <li><span class="tag">ZIO</span></li>
+            <li><span class="tag">Cats / cats-effect</span></li>
+            <li><span class="tag">Akka</span></li>
+            <li><span class="tag">Http4s</span></li>
+            <li><span class="tag">gRPC</span></li>
+            <li><span class="tag">Play Framework</span></li>
+            <li><span class="tag">Grafana</span></li>
+            <li><span class="tag">Prometheus</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Practices</h3>
+          <ul class="skill-list" role="list">
+            <li><span class="tag">Accessibility (WCAG, WAI-ARIA)</span></li>
+            <li><span class="tag">Functional Programming</span></li>
+            <li><span class="tag">Distributed Systems</span></li>
+            <li><span class="tag">CI/CD</span></li>
+            <li><span class="tag">Observability</span></li>
+            <li><span class="tag">Open Source</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="community-heading">
+      <h2 id="community-heading">Community &amp; Advocacy</h2>
+      <div class="cv-entries">
+        <article class="cv-entry">
+          <div class="cv-entry-header">
+            <h3>Vice-President of the Fiscal Council</h3>
+            <span class="cv-date">2025 — Present</span>
+          </div>
+          <p class="cv-org">
+            <a href="https://bengalamagica.pt/" target="_blank" rel="noopener"
+              >Associação Bengala Mágica</a
+            >
+          </p>
+          <p>
+            Non-profit advocating for the autonomy and rights of blind people
+            in Portugal.
+          </p>
+        </article>
+
+        <article class="cv-entry">
+          <div class="cv-entry-header">
+            <h3>Expert Member, Núcleo para o Braille e Meios Complementares de Leitura</h3>
+            <span class="cv-date">2025 — Present</span>
+          </div>
+          <p class="cv-org">
+            <a href="https://www.inr.pt/nucleo-para-o-braille-e-meios-complementares-de-leitura" target="_blank" rel="noopener"
+              >Instituto Nacional para a Reabilitação (INR)</a
+            >
+          </p>
+          <p>
+            Advisory body on Braille standards, teaching, and complementary
+            reading methods for blind and visually impaired people in Portugal.
+          </p>
+        </article>
+
+        <article class="cv-entry">
+          <div class="cv-entry-header">
+            <h3>Second Treasurer, National Board of Directors</h3>
+            <span class="cv-date">2017 — 2020</span>
+          </div>
+          <p class="cv-org">
+            <a href="https://www.acapo.pt/" target="_blank" rel="noopener"
+              >ACAPO</a
+            >
+          </p>
+          <p>
+            Member of the national board of directors of the Portuguese
+            association for the blind and partially sighted.
+          </p>
+        </article>
+
+        <article class="cv-entry">
+          <div class="cv-entry-header">
+            <h3>Technology Consultant to the Board of Directors</h3>
+            <span class="cv-date">Occasional</span>
+          </div>
+          <p class="cv-org">
+            <a href="https://www.acapo.pt/" target="_blank" rel="noopener"
+              >ACAPO</a
+            >
+          </p>
+          <p>
+            Consulting on technology matters for the Portuguese association for
+            the blind and partially sighted.
+          </p>
+        </article>
+
+        <article class="cv-entry">
+          <div class="cv-entry-header">
+            <h3>SINFO — IST Informatics Week</h3>
+            <span class="cv-date">2010 — 2012</span>
+          </div>
+          <p class="cv-org">Técnico Lisboa</p>
+          <p>
+            Co-organised the XIII and XIX editions. Handled company and sponsor
+            relations, sysadmin, and organised Richard Stallman's visit and talk
+            (March 2012).
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="publications-heading">
+      <h2 id="publications-heading">Publications &amp; Speaking</h2>
+      <p>
+        Conference talks at Kafka Summit, LXScala, and others. See the full list
+        at <a href="/publications/">publications</a>.
+      </p>
+    </section>
+
+    <section aria-labelledby="languages-heading">
+      <h2 id="languages-heading">Languages</h2>
+      <ul class="language-list">
+        <li><strong>Portuguese</strong> — Native</li>
+        <li><strong>English</strong> — Fluent</li>
+      </ul>
+    </section>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .page-header {
+    margin-block-end: var(--space-2xl);
+    padding-block-end: var(--space-lg);
+    border-block-end: 1px solid var(--color-border);
+  }
+
+  .prefix {
+    color: var(--color-text-subtle);
+  }
+
+  .subtitle {
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-md);
+    margin-block-start: var(--space-xs);
+  }
+
+  .last-updated {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-subtle);
+    margin-block-start: var(--space-xs);
+  }
+
+  .cv-content {
+    max-width: var(--max-width);
+  }
+
+  .cv-content section {
+    margin-block-end: var(--space-3xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-lg);
+    padding-block-end: var(--space-sm);
+    border-block-end: 1px solid var(--color-border);
+    margin-block-end: var(--space-lg);
+  }
+
+  .cv-entries {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  .cv-entry-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .cv-entry h3 {
+    font-size: var(--font-size-base);
+  }
+
+  .cv-date {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-subtle);
+    white-space: nowrap;
+  }
+
+  .cv-org {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    color: var(--color-accent);
+    margin-block-end: var(--space-sm);
+  }
+
+  .cv-org a {
+    color: inherit;
+  }
+
+  .cv-entry > p:last-child {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    line-height: 1.7;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .skills-grid h3 {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-sm);
+  }
+
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    list-style: none;
+    padding: 0;
+  }
+
+  .language-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .language-list li {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+
+  .language-list li + li {
+    margin-block-start: var(--space-sm);
+  }
+
+  .language-list strong {
+    font-family: var(--font-mono);
+    color: var(--color-text);
+  }
+</style>

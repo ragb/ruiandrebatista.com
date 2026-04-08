@@ -1,0 +1,97 @@
+---
+import FormattedDate from "./FormattedDate.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  slug: string;
+  tags?: string[];
+}
+
+const { title, description, pubDate, slug, tags = [] } = Astro.props;
+---
+
+<article class="post-card">
+  <div class="post-meta">
+    <FormattedDate date={pubDate} />
+  </div>
+  <h3>
+    <a href={`/blog/${slug}/`}>{title}</a>
+  </h3>
+  <p>{description}</p>
+  {
+    tags.length > 0 && (
+      <ul class="tag-list" role="list" aria-label="Tags">
+        {tags.map((tag) => (
+          <li>
+            <a href={`/blog/tag/${tag}/`} class="tag">{tag}</a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</article>
+
+<style>
+  .post-card {
+    padding: var(--space-lg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-bg-alt);
+    transition: border-color var(--transition-fast);
+  }
+
+  .post-card:hover {
+    border-color: var(--color-text-subtle);
+  }
+
+  .post-meta {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-subtle);
+    margin-block-end: var(--space-xs);
+  }
+
+  h3 {
+    font-size: var(--font-size-md);
+    margin-block-end: var(--space-sm);
+  }
+
+  h3 a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  h3 a:hover {
+    color: var(--color-accent);
+  }
+
+  p {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    list-style: none;
+    padding: 0;
+    margin-block-start: var(--space-sm);
+  }
+
+  a.tag {
+    text-decoration: none;
+    color: var(--color-text-muted);
+    transition:
+      color var(--transition-fast),
+      border-color var(--transition-fast);
+  }
+
+  a.tag:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+</style>

@@ -1,0 +1,171 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="About — Rui André Batista"
+  description="About Rui André Batista — blind software engineer, open source contributor, and accessibility advocate."
+>
+  <header class="page-header">
+    <h1>
+      <span class="prefix" aria-hidden="true">~/</span>about
+    </h1>
+  </header>
+
+  <div class="about-content">
+    <section aria-labelledby="story-heading">
+      <h2 id="story-heading">The short version</h2>
+      <p>
+        I'm Rui. Software engineer, based in Portugal. Legally blind — I
+        use a screen reader, a braille display, and a keyboard to do my job.
+      </p>
+      <p>
+        I got into programming as a teenager, partly because I wanted to
+        understand the assistive technology I depended on, partly because I like to tweak things and learn for the fun of it. That led to
+        contributions to open source accessibility projects early on, a CS
+        degree at Técnico Lisboa, and a career that moved through functional
+        programming, distributed systems, and streaming infrastructure. I've
+        worked with Scala for years, spent time at TB.LX (Daimler Trucks)
+        building Kafka-based systems, and now lead a backend team at
+        <a href="https://tiko.org/" target="_blank" rel="noopener">Tiko</a>.
+      </p>
+    </section>
+
+    <section aria-labelledby="personal-heading">
+      <h2 id="personal-heading">Outside of work</h2>
+      <p>
+        I'm involved in the blindness and accessibility community in Portugal.
+        I consult for
+        <a href="https://www.acapo.pt/" target="_blank" rel="noopener">ACAPO</a>
+        on technology matters, serve on the fiscal council of
+        <a href="https://bengalamagica.pt/" target="_blank" rel="noopener"
+          >Associação Bengala Mágica</a
+        >, and I'm a member of the
+        <a href="https://www.inr.pt/nucleo-para-o-braille-e-meios-complementares-de-leitura" target="_blank" rel="noopener"
+          >Núcleo para o Braille</a
+        > at INR. I write about accessibility, Braille, and technology
+        occasionally — see <a href="/publications/">publications</a>.
+      </p>
+      <p>
+        I play piano and guitar, and have a habit of accumulating musical
+        instruments, accessories, and equipment that I don't strictly need.
+        The guitar pedal situation in particular has gotten out of hand. I
+        read a lot — mostly history and fiction. I live with my partner and
+        our baby daughter.
+      </p>
+    </section>
+
+    <section aria-labelledby="site-heading">
+      <h2 id="site-heading">Why this site</h2>
+      <p>
+        I wanted a place to collect the things I've done and the things I think
+        about. A blog to write in, a list of projects to point to, a CV that
+        doesn't live in a PDF. Nothing fancy — just a static site I control and manage,
+      </p>
+    </section>
+
+    <section aria-labelledby="faq-heading">
+      <h2 id="faq-heading">FAQ</h2>
+      <dl class="faq-list">
+        <div class="faq-item">
+          <dt>How do you use a computer?</dt>
+          <dd>
+            With a screen reader (software that reads the screen aloud and/or
+            outputs it to a braille display) and a standard keyboard. No mouse.
+          </dd>
+        </div>
+
+        <div class="faq-item">
+          <dt>How do you write code?</dt>
+          <dd>
+            Same way as anyone else, minus the visual feedback. I use a text
+            editor or IDE with screen reader support, navigate by keyboard, and
+            rely on structure (indentation levels, syntax, type systems) rather
+            than visual layout. Good tooling, strong type systems, and a solid
+            terminal workflow help a lot. AI tools have been helping a bit in this regard.
+          </dd>
+        </div>
+
+        <div class="faq-item">
+          <dt>What's a braille display?</dt>
+          <dd>
+            A hardware device that sits in front of the keyboard and renders
+            text as raised dots you can read with your fingers. It refreshes
+            dynamically as you move through content. It's essential for
+            reading code, reviewing formatting, and anything where audio alone
+            isn't precise enough.
+          </dd>
+        </div>
+
+        <div class="faq-item">
+          <dt>Is this site accessible?</dt>
+          <dd>
+            It better be. It's built with semantic HTML, proper heading
+            structure, keyboard navigation, ARIA where needed, and tested with
+            screen readers. If you find an issue,
+            <a
+              href="https://github.com/ragb/ruiandrebatista.com"
+              target="_blank"
+              rel="noopener"
+              >open an issue on GitHub</a
+            >.
+          </dd>
+        </div>
+      </dl>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-header {
+    margin-block-end: var(--space-2xl);
+  }
+
+  .prefix {
+    color: var(--color-text-subtle);
+  }
+
+  .about-content {
+    max-width: var(--max-width);
+  }
+
+  .about-content section {
+    margin-block-end: var(--space-3xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-lg);
+    padding-block-end: var(--space-sm);
+    border-block-end: 1px solid var(--color-border);
+    margin-block-end: var(--space-lg);
+  }
+
+  p + p {
+    margin-block-start: var(--space-md);
+  }
+
+  p {
+    color: var(--color-text-muted);
+    line-height: 1.75;
+  }
+
+  .faq-list {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  .faq-item dt {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-block-end: var(--space-sm);
+  }
+
+  .faq-item dd {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    line-height: 1.75;
+  }
+</style>

@@ -1,0 +1,131 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Uses — Rui André Batista"
+  description="Hardware, software, and tools I use daily as a blind software engineer."
+>
+  <header class="page-header">
+    <h1>
+      <span class="prefix" aria-hidden="true">~/</span>uses
+    </h1>
+    <p>What I use to get work done.</p>
+  </header>
+
+  <div class="uses-content">
+    <section aria-labelledby="screen-readers-heading">
+      <h2 id="screen-readers-heading">Screen Readers</h2>
+      <dl class="uses-list">
+        <div class="uses-item">
+          <dt>NVDA</dt>
+          <dd>Primary screen reader on Windows. Free, open source, and the one I contributed to for years.</dd>
+        </div>
+        <div class="uses-item">
+          <dt>VoiceOver</dt>
+          <dd>Built into macOS and iOS. My go-to on Apple devices.</dd>
+        </div>
+        <div class="uses-item">
+          <dt>Orca</dt>
+          <dd>Screen reader for Linux/GNOME.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="hardware-heading">
+      <h2 id="hardware-heading">Hardware</h2>
+      <dl class="uses-list">
+        <div class="uses-item">
+          <dt>Braille display</dt>
+          <dd>Essential for reading code, reviewing formatting, and anything where audio isn't precise enough. I use a refreshable braille display connected via USB or Bluetooth.</dd>
+        </div>
+        <div class="uses-item">
+          <dt>Standard keyboard</dt>
+          <dd>No mouse. Everything is keyboard-driven.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="dev-tools-heading">
+      <h2 id="dev-tools-heading">Development</h2>
+      <dl class="uses-list">
+        <div class="uses-item">
+          <dt>Terminal</dt>
+          <dd>Where most of my work happens. Git, build tools, SSH — all keyboard, all accessible.</dd>
+        </div>
+        <div class="uses-item">
+          <dt>VS Code</dt>
+          <dd>Good screen reader support, decent with NVDA and VoiceOver.</dd>
+        </div>
+        <div class="uses-item">
+          <dt>IntelliJ IDEA</dt>
+          <dd>For JVM work (Scala, Java, Kotlin). Accessibility has improved over the years.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <p class="note">
+      This page is a work in progress. I'll expand it over time.
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-header {
+    margin-block-end: var(--space-2xl);
+  }
+
+  .prefix {
+    color: var(--color-text-subtle);
+  }
+
+  .page-header p {
+    color: var(--color-text-muted);
+    margin-block-start: var(--space-sm);
+  }
+
+  .uses-content {
+    max-width: var(--max-width);
+  }
+
+  .uses-content section {
+    margin-block-end: var(--space-3xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-lg);
+    padding-block-end: var(--space-sm);
+    border-block-end: 1px solid var(--color-border);
+    margin-block-end: var(--space-lg);
+  }
+
+  .uses-list {
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .uses-item dt {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-block-end: var(--space-xs);
+  }
+
+  .uses-item dd {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    line-height: 1.75;
+  }
+
+  .note {
+    margin-block-start: var(--space-2xl);
+    padding: var(--space-md);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text-subtle);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    font-style: italic;
+  }
+</style>

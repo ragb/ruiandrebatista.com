@@ -1,0 +1,67 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import { getCollection } from "astro:content";
+
+const allProjects = await getCollection("projects");
+const projects = allProjects.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<BaseLayout
+  title="Projects — Rui André Batista"
+  description="A selection of projects I've built or contributed to."
+>
+  <header class="page-header">
+    <h1>
+      <span class="prefix" aria-hidden="true">~/</span>projects
+    </h1>
+    <p>Things I've built, contributed to, or am working on.</p>
+  </header>
+
+  {
+    projects.length > 0 ? (
+      <div class="project-grid">
+        {projects.map((project) => (
+          <ProjectCard
+            title={project.data.title}
+            description={project.data.description}
+            slug={project.id}
+            tags={project.data.tags}
+            repoUrl={project.data.repoUrl}
+            liveUrl={project.data.liveUrl}
+            status={project.data.status}
+          />
+        ))}
+      </div>
+    ) : (
+      <p class="empty">No projects yet. Check back soon.</p>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .page-header {
+    margin-block-end: var(--space-2xl);
+  }
+
+  .prefix {
+    color: var(--color-text-subtle);
+  }
+
+  .page-header p {
+    color: var(--color-text-muted);
+    margin-block-start: var(--space-sm);
+  }
+
+  .project-grid {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .empty {
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>
