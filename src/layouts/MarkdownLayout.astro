@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import CopyCodeButton from "../components/CopyCodeButton.astro";
+import ShareLinks from "../components/ShareLinks.astro";
 
 interface Props {
   title: string;
@@ -16,6 +17,7 @@ interface Props {
   heroImage?: ImageMetadata;
   heroImageAlt?: string;
   heroImageLongDesc?: string;
+  shareUrl?: string;
   prevPost?: { title: string; slug: string };
   nextPost?: { title: string; slug: string };
 }
@@ -32,6 +34,7 @@ const {
   heroImage,
   heroImageAlt,
   heroImageLongDesc,
+  shareUrl,
   prevPost,
   nextPost,
 } = Astro.props;
@@ -87,6 +90,14 @@ const {
     </div>
     <CopyCodeButton />
   </article>
+
+  {
+    shareUrl && (
+      <div class="share-section">
+        <ShareLinks url={shareUrl} title={title} />
+      </div>
+    )
+  }
 
   {
     (prevPost || nextPost) && (
@@ -174,6 +185,12 @@ const {
   .tag-list a.tag:hover {
     color: var(--color-accent);
     border-color: var(--color-accent);
+  }
+
+  .share-section {
+    margin-block-start: var(--space-2xl);
+    padding-block-start: var(--space-lg);
+    border-block-start: 1px solid var(--color-border);
   }
 
   .post-nav {

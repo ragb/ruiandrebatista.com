@@ -45,6 +45,7 @@ const readingTime = Math.max(1, Math.round(words / 200));
   heroImage={post.data.heroImage}
   heroImageAlt={post.data.heroImageAlt}
   heroImageLongDesc={post.data.heroImageLongDesc}
+  shareUrl={new URL(`/blog/${post.id}/`, Astro.site).toString()}
   prevPost={prevPost}
   nextPost={nextPost}
 >
