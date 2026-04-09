@@ -21,7 +21,7 @@ But wait. What specifications? What requirements? What strategy?
 
 Spend a few months in the IT industry — startups, big corporates, the HR consultancy disguised as a software company — and you will hear "I don't understand the requirements" from developers, "you should assume..." from product people, and a different, unclear strategy every year from your talkative and mostly oblivious CEO. And with the state of written communication these days — people who haven't written a full paragraph since university, entire organisations that communicate exclusively in Slack one-liners and emoji reactions, a generation that was never taught to structure an argument on paper — this is only getting worse. But sure, specifications will save us. The people who can't write a clear email are going to write clear software requirements. I'm exaggerating, and I know it. I'm leaning on stereotypes on purpose, being deliberately unfair to many brilliant product people, managers, and leaders I've worked with and admire. But not by as much as I'd like.
 
-How exactly do you expect any AI, however sophisticated, to build a decent product out of that? Production ready? For users that require legal consideration? With data consistency? GDPR compliance?
+How exactly do you expect any AI, however sophisticated, to build a decent product out of that chaos? Production ready? For users that require legal consideration? With data consistency? GDPR compliance?
 
 People can't even agree on what "deleting data" means.
 
@@ -34,3 +34,5 @@ And here's a thought from the other direction. Most good developers and engineer
 And don't forget: developers and engineers also get the productivity benefits of AI-assisted coding. The difference is they can challenge it. They can look at what the AI produced and say "this won't scale," "this has a race condition," "this ignores half the edge cases." That's not a small difference. That's the whole point.
 
 To be clear: AI coding tools are genuinely useful. Scaffolding a project, exploring an unfamiliar API, writing boilerplate, generating tests, prototyping an idea before committing to it, working in a language you don't use every day — all of that is faster now. This website was built with heavy AI assistance. But the decisions about what to build, how to structure it, what to include and what to leave out — those were mine. The tool helped me move faster. It didn't tell me where to go.
+
+I'm not here to argue that developers should seize the means of production, nor that everyone should panic about losing their jobs. What I am saying is that the narrative being pushed by leaders and influencers right now — the "just write specs and fire the engineers" take — is doing far more harm than good. It's built on ignorance of how software actually gets made, on greed dressed up as innovation, and on a fundamental misunderstanding of why building things is hard. The bottleneck was never the typing. It never will be.
