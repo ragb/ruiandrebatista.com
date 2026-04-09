@@ -70,34 +70,43 @@ const links = [
 </nav>
 
 <script>
-  const btn = document.querySelector(".hamburger-btn") as HTMLButtonElement;
-  const menu = document.getElementById("mobile-menu") as HTMLUListElement;
+  function initMobileNav() {
+    const btn = document.querySelector(".hamburger-btn") as HTMLButtonElement;
+    const menu = document.getElementById("mobile-menu") as HTMLUListElement;
+    if (!btn || !menu) return;
 
-  function toggle() {
-    const isOpen = btn.getAttribute("aria-expanded") === "true";
-    btn.setAttribute("aria-expanded", String(!isOpen));
-    btn.setAttribute("aria-label", isOpen ? "Open menu" : "Close menu");
-    menu.hidden = isOpen;
-  }
+    // Reset state on page navigation
+    btn.setAttribute("aria-expanded", "false");
+    btn.setAttribute("aria-label", "Open menu");
+    menu.hidden = true;
 
-  btn.addEventListener("click", toggle);
-
-  // Close when pressing Escape
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && btn.getAttribute("aria-expanded") === "true") {
-      toggle();
-      btn.focus();
+    function toggle() {
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!isOpen));
+      btn.setAttribute("aria-label", isOpen ? "Open menu" : "Close menu");
+      menu.hidden = isOpen;
     }
-  });
 
-  // Close when clicking a link inside the menu
-  menu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      if (btn.getAttribute("aria-expanded") === "true") {
+    btn.addEventListener("click", toggle);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && btn.getAttribute("aria-expanded") === "true") {
         toggle();
+        btn.focus();
       }
     });
-  });
+
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (btn.getAttribute("aria-expanded") === "true") {
+          toggle();
+        }
+      });
+    });
+  }
+
+  initMobileNav();
+  document.addEventListener("astro:after-swap", initMobileNav);
 </script>
 
 <style>
