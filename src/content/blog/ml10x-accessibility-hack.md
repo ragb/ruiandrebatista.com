@@ -15,7 +15,7 @@ This is one of those stories: it mixes accessibility, music, hacking and — we 
 
 Come with me on the road to put a very capable guitar gear device through its paces, making a somehow accessible editor.
 
-*A note on the image above: that's the poetic, ear-to-the-circuit version of reverse-engineering — the romantic one. The actual story is below, and it involves a lot more grepping minified JavaScript than listening to relay clicks. Both are true in their own way.*
+*About the image: the romantic version. The real story — grepping minified JavaScript — is below.*
 
 ## What the ML10X actually is (for non-guitar readers)
 
